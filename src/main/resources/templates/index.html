@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Crawler - test</title>
+    <script src="js/form.js"></script>
+</head>
+<body>
+<h2>URL crawler</h2>
+<h3>Enter your name:</h3>
+<form name="newLink" action="/" method="post" onsubmit="return validateForm()">
+    Insert an URL:   <input name="URL"/> <br/>
+    <input type="submit" value="Submit">
+</form>
+<br>
+<h3>Crawled URLs</h3>
+<p th:each="link : ${origin}">
+    <span th:text="${link}"></span>
+</p>
+
+<br>
+<h3>Crawled results saved on Redis</h3>
+<p th:each="link : ${url}">
+    <span th:text="${link}"></span>
+</p>
+
+</body>
+</html>
